@@ -27,4 +27,6 @@ params = (
 )
 
 response = requests.get('https://sisteminformasibanjir.jakarta.go.id/api/report/pintuAirReports/2021-08-17', headers=headers, params=params)
-response.json()
+result = response.json()
+df = pd.json_normalize(result['data'])
+df
